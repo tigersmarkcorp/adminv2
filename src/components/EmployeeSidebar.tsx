@@ -1,4 +1,4 @@
-import { LayoutDashboard, FolderOpen, LogOut, User, Flame } from "lucide-react";
+import { LayoutDashboard, FolderOpen, LogOut, User, Flame, FileText } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useAuth } from "@/hooks/useAuth";
 import {
@@ -9,6 +9,7 @@ import {
 const navItems = [
   { title: "Dashboard", url: "/employee", icon: LayoutDashboard },
   { title: "Forms / Files", url: "/employee/files", icon: FolderOpen },
+  { title: "Request Form", url: "https://docs.google.com/forms/d/e/1FAIpQLSemEwoY69_2MEliaFXrkh6r8BhrccEQxDVzWIDtABsyz5cYSQ/viewform", icon: FileText, external: true },
   { title: "Profile", url: "/employee/profile", icon: User },
 ];
 
@@ -36,17 +37,33 @@ export function EmployeeSidebar() {
               {navItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <NavLink
-                      to={item.url}
-                      end={item.url === "/employee"}
-                      className="group flex items-center gap-3 px-4 py-2.5 rounded-xl text-[13px] font-medium transition-all duration-200 text-sidebar-foreground/70 hover:text-primary hover:bg-accent"
-                      activeClassName="gradient-primary text-white font-semibold shadow-md glow-sm-primary"
-                    >
-                      <div className="w-8 h-8 rounded-lg bg-muted/60 flex items-center justify-center group-hover:bg-primary/10 transition-colors group-[.gradient-primary]:bg-white/20">
-                        <item.icon className="w-[18px] h-[18px]" />
-                      </div>
-                      <span className="flex-1">{item.title}</span>
-                    </NavLink>
+
+                    {item.external ? (
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center gap-3 px-4 py-2.5 rounded-xl text-[13px] font-medium transition-all duration-200 text-sidebar-foreground/70 hover:text-primary hover:bg-accent"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-muted/60 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                          <item.icon className="w-[18px] h-[18px]" />
+                        </div>
+                        <span className="flex-1">{item.title}</span>
+                      </a>
+                    ) : (
+                      <NavLink
+                        to={item.url}
+                        end={item.url === "/employee"}
+                        className="group flex items-center gap-3 px-4 py-2.5 rounded-xl text-[13px] font-medium transition-all duration-200 text-sidebar-foreground/70 hover:text-primary hover:bg-accent"
+                        activeClassName="gradient-primary text-white font-semibold shadow-md glow-sm-primary"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-muted/60 flex items-center justify-center group-hover:bg-primary/10 transition-colors group-[.gradient-primary]:bg-white/20">
+                          <item.icon className="w-[18px] h-[18px]" />
+                        </div>
+                        <span className="flex-1">{item.title}</span>
+                      </NavLink>
+                    )}
+
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
