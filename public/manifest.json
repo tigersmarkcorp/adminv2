@@ -9,13 +9,13 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/EMM.png",
+      "src": "/EMMM.png",
       "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "any maskable"
     },
     {
-      "src": "/EMM.png",
+      "src": "/EMMM.png",
       "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "any maskable"
