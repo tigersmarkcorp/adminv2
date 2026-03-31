@@ -9,21 +9,21 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/MMK.png",
+      "src": "/TMCB.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     
     },
         {
-      "src": "/MMK.png",
+      "src": "/TMCB.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     
     },
     {
-      "src": "/MMK.png",
+      "src": "/TMCB.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
